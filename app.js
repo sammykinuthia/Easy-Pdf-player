@@ -23,8 +23,7 @@ async function upload(formData) {
     const result = await response.json().then((data) => {
       if (data.isSuccess === true) {
         const audio = document.getElementById("audio");
-        const audioSrc = document.getElementById("audio-src");
-        audio.removeAttribute("hidden");
+        document.getElementById("play-pdf").removeAttribute("hidden");
         document.getElementById("upload").setAttribute("aria-busy", "false");
         audio.load();
         audio.play();
