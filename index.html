@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html data-theme="dark" lang="en">
-
-<head>
+  <head>
     <style>
-        .play-pdf {
-            margin-top: 10rem;
-        }
+      .play-pdf {
+        margin-top: 10rem;
+      }
 
-        audio {
-            width: 100%;
-        }
+      audio {
+        width: 100%;
+      }
 
-        .my-3 {
-            margin: 3rem 0;
-        }
+      .my-3 {
+        margin: 3rem 0;
+      }
+      #recent > div, .play-pdf{
+        padding: 1rem;
+        box-shadow: 0px 0px 10px aqua;
+      }
     </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,27 +24,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Easy PDF</title>
     <script defer src="./app.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="headings my-3">
-            <h2>EASY PDF</h2>
-            <h3>Save time reading materials</h3>
-        </div>
-        <form method="post" class="grid" id="form" enctype="multipart/form-data">
-            <input type="file" name="pdf_file" accept=".pdf" placeholder="pdf file" aria-label="file"
-                autocomplete="nickname" required id="uploadFile" />
-            <input type="text" id="fileName" required placeholder="file name" />
-            <button id="upload" aria-busy="false" type="submit">upload</button>
-        </form>
-        <div hidden id="play-pdf" class="play-pdf">
-            <h3 id="audio-header" class="text-centre"></h3>
-            <audio  controls id="audio">
-                <source id="audio-src" src="http://127.0.0.1:5000/wav" type="audio/mp3" />
-            </audio>
-        </div>
+      <div class="headings my-3">
+        <h2>EASY PDF</h2>
+        <h3>Save time reading materials</h3>
+      </div>
+      <form method="post" class="grid" id="form" enctype="multipart/form-data">
+        <input
+          type="file"
+          name="pdf_file"
+          accept=".pdf"
+          placeholder="pdf file"
+          aria-label="file"
+          autocomplete="nickname"
+          required
+          id="uploadFile"
+        />
+        <input type="text" id="fileName" required placeholder="file name" />
+        <button id="upload" aria-busy="false" type="submit">upload</button>
+      </form>
+      <div id="recently-played" class="recently-played">
+        <h3>Play recent PDFS</h3>
+        <ul id="recent">
+          <!-- items loaded here -->
+        </ul>
+      </div>
+      <div id="play-pdf" class="play-pdf">
+        <h3 id="audio-header" class="text-centre">PDF:</h3>
+        <audio id="audio" controls src=""></audio>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
